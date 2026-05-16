@@ -11,133 +11,6 @@ from utils.supabase_client import (
     get_profile
 )
 
-# === Theme Configuration ===
-THEMES = {
-    "light": {
-        "primaryColor": "#1a5276",
-        "backgroundColor": "#ffffff",
-        "secondaryBackgroundColor": "#f0f2f6",
-        "textColor": "#262730",
-        "font": "sans-serif",
-        "css": """
-            <style>
-            /* Light Mode Styles */
-            :root {
-                --primary: #1a5276;
-                --bg: #ffffff;
-                --bg-secondary: #f0f2f6;
-                --text: #262730;
-            }
-            .stApp { background-color: var(--bg); }
-            </style>
-        """
-    },
-    "dark": {
-        "primaryColor": "#3498db",
-        "backgroundColor": "#0e1117",
-        "secondaryBackgroundColor": "#262730",
-        "textColor": "#fafafa",
-        "font": "sans-serif",
-        "css": """
-            <style>
-            /* Dark Mode Styles */
-            :root {
-                --primary: #3498db;
-                --bg: #0e1117;
-                --bg-secondary: #262730;
-                --text: #fafafa;
-            }
-            .stApp { background-color: var(--bg); }
-            .css-1d391kg, .css-1v0md5e, .css-1offfwp { background-color: var(--bg-secondary) !important; }
-            .st-bb, .st-at { background-color: var(--bg) !important; }
-            h1, h2, h3, h4, h5, h6, p, span, label { color: var(--text) !important; }
-            .st-cj, .st-c0, .st-c1 { color: var(--text) !important; }
-            .st-dm, .st-dn, .st-do, .st-dp { color: var(--text) !important; }
-            div[data-testid="stToolbar"] { background-color: var(--bg-secondary); }
-            .streamlit-expanderHeader { background-color: var(--bg-secondary); color: var(--text); }
-            </style>
-        """
-    }
-}
-
-
-def get_theme_css(theme_name: str) -> str:
-    """Get CSS for the selected theme."""
-    return THEMES.get(theme_name, THEMES["light"]).get("css", "")
-
-
-def apply_theme_config(theme_name: str):
-    """Apply theme configuration to Streamlit."""
-    theme = THEMES.get(theme_name, THEMES["light"])
-    st.session_state['theme_config'] = {
-        "primaryColor": theme["primaryColor"],
-        "backgroundColor": theme["backgroundColor"],
-        "secondaryBackgroundColor": theme["secondaryBackgroundColor"],
-        "textColor": theme["textColor"],
-    }
-
-
-# === Page Config (will be called with theme) ===
-def setup_page_config():
-    """Setup page configuration with theme."""
-    # Get theme from session state, default to light
-    theme_name = st.session_state.get('theme', 'light')
-
-    # Apply theme config
-    apply_theme_config(theme_name)
-
-    # Inject CSS
-    st.markdown(get_theme_css(theme_name), unsafe_allow_html=True)
-
-    # Set page config
-    st.set_page_config(
-        page_title="RIASEC Career App",
-        page_icon="🎓",
-        layout="centered",
-        initial_sidebar_state="collapsed"
-    )
-
-
-def init_session_state():
-    """Initialize session state variables."""
-    defaults = {
-        'user': None,
-        'profile': None,
-        'riasec_scores': None,
-        'academic_scores': None,
-        'recommendations': None,
-        'authenticated': False,
-        'theme': 'light',  # Default to light mode
-    }
-    for key, value in defaults.items():
-        if key not in st.session_state:
-            st.session_state[key] = value
-
-
-# === Theme Toggle Component ===
-def render_theme_toggle():
-    """Render theme toggle in sidebar."""
-    st.sidebar.markdown("---")
-    st.sidebar.markdown("### 🎨 Tema")
-
-    col1, col2 = st.sidebar.columns(2)
-
-    current_theme = st.session_state.get('theme', 'light')
-
-    with col1:
-        if st.button("☀️ Light", use_container_width=True,
-                     type="secondary" if current_theme != 'light' else "primary"):
-            st.session_state['theme'] = 'light'
-            st.rerun()
-
-    with col2:
-        if st.button("🌙 Dark", use_container_width=True,
-                     type="secondary" if current_theme != 'dark' else "primary"):
-            st.session_state['theme'] = 'dark'
-            st.rerun()
-
-    st.sidebar.markdown("---")
-
 # === Supabase Auth Helper ===
 def init_supabase():
     """Initialize Supabase client."""
@@ -335,9 +208,6 @@ def render_register_form():
 
 def render_role_selector():
     """Show role selection when user is logged in."""
-    # Theme toggle
-    render_theme_toggle()
-
     st.sidebar.success(f"👤 {st.session_state.user.get('full_name', 'User')}")
     st.sidebar.markdown(f"**Role:** {'👨‍🎓 Siswa' if st.session_state.user.get('role') == 'siswa' else '👨‍🏫 Guru BK'}")
 
@@ -402,9 +272,6 @@ def render_guru_bk_sidebar():
 
 def render_landing():
     """Render landing page for unauthenticated users."""
-    # Theme toggle at top
-    render_theme_toggle()
-
     st.title("🎓 RIASEC Career App")
     st.markdown("---")
 
@@ -521,9 +388,6 @@ def main():
     """Main application entry point."""
     # Initialize session state
     init_session_state()
-
-    # Apply theme CSS
-    st.markdown(get_theme_css(st.session_state.get('theme', 'light')), unsafe_allow_html=True)
 
     # Check authentication
     if st.session_state.authenticated and st.session_state.user:

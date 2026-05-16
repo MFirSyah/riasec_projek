@@ -1,0 +1,175 @@
+{
+    "meta": {
+        "title": "Tes Kepribadian RIASEC",
+        "description": "Kuesioner ini membantu mengenali minat dan kepribadianmu agar bisa menemukan program studi yang paling sesuai.",
+        "instructions": "Bacalah setiap pernyataan dengan seksama. Pilih angka yang paling menggambarkan dirimu saat ini, bukan siapa yang ingin kamu jadikan.",
+        "scale": {
+            "1": "Sangat Tidak Setuju",
+            "2": "Tidak Setuju",
+            "3": "Netral",
+            "4": "Setuju",
+            "5": "Sangat Setuju"
+        },
+        "scoring": {
+            "formula": "skor_normalized = (jumlah_4_jawaban - 4) / 16 * 100",
+            "min_raw": 4,
+            "max_raw": 20,
+            "output_range": "0 - 100"
+        },
+        "total_questions": 24,
+        "dimensions": [
+            "R",
+            "I",
+            "A",
+            "S",
+            "E",
+            "C"
+        ]
+    },
+    "questions": [
+        {
+            "id": 1,
+            "dimension": "R",
+            "dimension_label": "Realistic",
+            "text": "Saya lebih suka melakukan pekerjaan menggunakan tangan, seperti merakit, memperbaiki, atau membuat sesuatu secara langsung."
+        },
+        {
+            "id": 2,
+            "dimension": "R",
+            "dimension_label": "Realistic",
+            "text": "Saya tertarik dengan kegiatan yang berhubungan dengan mesin, kendaraan, elektronik, atau peralatan teknis."
+        },
+        {
+            "id": 3,
+            "dimension": "R",
+            "dimension_label": "Realistic",
+            "text": "Saya lebih nyaman bekerja di luar ruangan atau di lingkungan yang melibatkan aktivitas fisik daripada duduk di belakang meja."
+        },
+        {
+            "id": 4,
+            "dimension": "R",
+            "dimension_label": "Realistic",
+            "text": "Saya senang belajar sesuatu melalui praktik langsung dibandingkan hanya membaca teori."
+        },
+        {
+            "id": 5,
+            "dimension": "I",
+            "dimension_label": "Investigative",
+            "text": "Saya suka menganalisis sebuah masalah secara mendalam dan mencari tahu mengapa sesuatu bisa terjadi."
+        },
+        {
+            "id": 6,
+            "dimension": "I",
+            "dimension_label": "Investigative",
+            "text": "Saya senang membaca atau mencari informasi tentang topik ilmu pengetahuan, teknologi, atau hal-hal yang belum banyak orang ketahui."
+        },
+        {
+            "id": 7,
+            "dimension": "I",
+            "dimension_label": "Investigative",
+            "text": "Ketika menghadapi pertanyaan yang sulit, saya lebih suka mencari jawabannya sendiri daripada langsung bertanya kepada orang lain."
+        },
+        {
+            "id": 8,
+            "dimension": "I",
+            "dimension_label": "Investigative",
+            "text": "Saya menikmati kegiatan seperti eksperimen, penelitian, atau mengamati sesuatu dengan teliti untuk memahami cara kerjanya."
+        },
+        {
+            "id": 9,
+            "dimension": "A",
+            "dimension_label": "Artistic",
+            "text": "Saya senang mengekspresikan ide atau perasaan melalui kegiatan seperti menggambar, menulis, musik, tari, atau seni pertunjukan."
+        },
+        {
+            "id": 10,
+            "dimension": "A",
+            "dimension_label": "Artistic",
+            "text": "Saya lebih menyukai tugas yang memberi kebebasan berekspresi daripada tugas yang harus mengikuti aturan yang ketat."
+        },
+        {
+            "id": 11,
+            "dimension": "A",
+            "dimension_label": "Artistic",
+            "text": "Saya sering punya ide-ide kreatif yang ingin saya wujudkan, misalnya desain, cerita, lagu, atau konsep yang unik."
+        },
+        {
+            "id": 12,
+            "dimension": "A",
+            "dimension_label": "Artistic",
+            "text": "Saya mudah terinspirasi oleh karya seni, film, musik, atau desain dan sering ingin membuat sesuatu yang serupa."
+        },
+        {
+            "id": 13,
+            "dimension": "S",
+            "dimension_label": "Social",
+            "text": "Saya merasa puas dan senang ketika bisa membantu teman, keluarga, atau orang lain menyelesaikan masalah mereka."
+        },
+        {
+            "id": 14,
+            "dimension": "S",
+            "dimension_label": "Social",
+            "text": "Saya lebih suka bekerja atau belajar dalam kelompok dibandingkan sendiri."
+        },
+        {
+            "id": 15,
+            "dimension": "S",
+            "dimension_label": "Social",
+            "text": "Saya tertarik dengan pekerjaan yang berhubungan langsung dengan orang lain, seperti mengajar, merawat, atau membimbing."
+        },
+        {
+            "id": 16,
+            "dimension": "S",
+            "dimension_label": "Social",
+            "text": "Ketika ada teman yang sedang kesulitan, saya secara alami ingin mendengarkan dan memberikan dukungan."
+        },
+        {
+            "id": 17,
+            "dimension": "E",
+            "dimension_label": "Enterprising",
+            "text": "Saya percaya diri saat harus berbicara di depan orang banyak, memimpin diskusi, atau meyakinkan orang lain."
+        },
+        {
+            "id": 18,
+            "dimension": "E",
+            "dimension_label": "Enterprising",
+            "text": "Saya suka mengambil inisiatif dan menjadi pemimpin dalam sebuah proyek atau kegiatan kelompok."
+        },
+        {
+            "id": 19,
+            "dimension": "E",
+            "dimension_label": "Enterprising",
+            "text": "Saya tertarik dengan dunia bisnis, kewirausahaan, atau kegiatan yang melibatkan negosiasi dan pengambilan keputusan."
+        },
+        {
+            "id": 20,
+            "dimension": "E",
+            "dimension_label": "Enterprising",
+            "text": "Saya memiliki semangat tinggi untuk mencapai tujuan dan tidak mudah menyerah ketika menghadapi tantangan."
+        },
+        {
+            "id": 21,
+            "dimension": "C",
+            "dimension_label": "Conventional",
+            "text": "Saya merasa nyaman bekerja dengan data, angka, atau administrasi yang membutuhkan ketelitian dan keteraturan."
+        },
+        {
+            "id": 22,
+            "dimension": "C",
+            "dimension_label": "Conventional",
+            "text": "Saya lebih suka mengikuti prosedur dan aturan yang jelas daripada bekerja tanpa panduan yang terstruktur."
+        },
+        {
+            "id": 23,
+            "dimension": "C",
+            "dimension_label": "Conventional",
+            "text": "Saya senang merapikan, mengorganisir, atau membuat catatan agar segala sesuatu berjalan dengan rapi dan teratur."
+        },
+        {
+            "id": 24,
+            "dimension": "C",
+            "dimension_label": "Conventional",
+            "text": "Saya teliti dalam menyelesaikan tugas dan tidak suka jika ada kesalahan kecil yang terlewat dalam pekerjaan saya."
+        }
+    ]
+}

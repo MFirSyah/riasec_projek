@@ -1,0 +1,37 @@
+# Environment
+.env
+
+# Streamlit secrets (contains API keys!)
+.streamlit/secrets.toml
+.streamlit/secrets.toml.example
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+.venv/
+ENV/
+env/
+
+# Model files (optional - uncomment if you want to skip committing large model files)
+# model/*.pkl
+# model/*.joblib
+# model/rf_model.pkl
+# model/scaler.pkl
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Logs
+*.log
